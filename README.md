@@ -1,2 +1,2 @@
 # SalonTakipSistemi
- dddd
+Asp.Net MVC yaklaşımı kullanılarak kodlanmıştır.
