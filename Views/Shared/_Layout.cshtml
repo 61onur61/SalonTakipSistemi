@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>*@
+    <link href="~/fonts/Style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="~/Scripts/Scripts.js"></script>
+    @*<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">*@
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    @*<link href="~/Content/stil/css/main.css" rel="stylesheet" />*@
+    <link href="~/Content/stil/css/main.css" rel="stylesheet" />
+
+
+    <link href="~/Content/markups-b-hero/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/markups-b-hero/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/markups-b-hero/assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/markups-b-hero/assets/css/slick.css" rel="stylesheet" />
+    <link href="~/Content/markups-b-hero/assets/css/style.css" rel="stylesheet" />
+
+    <script src="~/Content/markups-b-hero/assets/js/app.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/circle.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/counter.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/custom.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/jquery.filterizr.min.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/markups-b-hero/assets/js/slick.min.js"></script>
+
+    <style>
+        .input-validation-error {
+            border: 1px solid red;
+            margin-bottom: 10px;
+        }
+
+        .field-validation-error {
+            font-size: 14px;
+            color: red;
+        }
+
+        .textArea {
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start Header -->
+    <header id="mu-hero">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light mu-navbar">
+                <!-- Text based logo -->
+                <a class="navbar-brand mu-logo" href="/Salons/Index/"><span>Anasayfa</span></a>
+                <!-- image based logo -->
+                <!-- <a class="navbar-brand mu-logo" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto mu-navbar-nav">
+                        <li class="nav-item">
+                            <a href="/Salons/Index/">Salonlar@*@Html.ActionLink("Salonlar", "Index", "Salons", new { area = "" })*@</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Salons/Create/">Salon Ekle@*@Html.ActionLink("Salon Ekle", "Create", "Salons", new { area = "" })*@</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Programs/Index/">Programlar@*@Html.ActionLink("Programlar", "Index", "Programs", new { area = "" })*@</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Programs/Create/">Program Ekle@*@Html.ActionLink("Program Ekle", "Create", "Programs", new { area = "" })*@</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Programs/Gun_Listesi/">Günün Programı@*@Html.ActionLink("Günün Programı", "Gun_Listesi", "Programs", new { area = "" })*@</a>
+                        </li>
+                        <li class="dropdown">
+                            @if (Session["uyeID"] != null)
+                            {
+                                <a href="#" id="navbarDrop2" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">@Session["KullaniciAd"].ToString()</span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop2">
+
+                                    <li><a href="/Uye/Index/@Session["uyeID"]">@Session["KullaniciAd"].ToString() Profil</a></li>
+
+                                    @if (Convert.ToInt32(Session["YetkiID"]) == 1)
+                                    {
+                                        <li>
+                                            <a href="/Admin/Index" target="_blank">Admin Paneli</a>
+                                        </li>
+                                    }
+                                    <li class="divider"></li>
+                                    <li><a href="/Uye/Logout">Çıkış</a></li>
+
+
+
+                                </ul>
+                            }
+                            else
+                            {
+                            <li>
+                                <a href="/Uye/Login">Giriş</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/Uye/Create">Kayıt Ol</a>
+                            </li>
+                        }
+
+
+                            @*@if (Session["uyeID"] != null)
+                                {
+                                    <li class="nav-item">
+                                        <a href="/Uye/Index/">@Session["KullaniciAd"].ToString()</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Uye/Logout/">Çıkış</a>
+                                    </li>
+                                    if (Convert.ToInt32(Session["YetkiID"]) == 1)
+                                    {
+                                        <li class="nav-item">
+                                            <a href="/Admin/Index/">Admin Paneli</a>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a href="/Uye/Login/">Giriş</a>
+                                    </li>
+                                }*@
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- End Header -->
+        @*<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand logo mr-5" })
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="navbar-dark">
+                            @Html.ActionLink("Giriş Sayfası", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Salonlar", "Index", "Salons", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Salon Ekle", "Create", "Salons", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Programlar", "Index", "Programs", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Program Ekle", "Create", "Programs", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Günün Programı", "Gun_Listesi", "Programs", new { area = "" }, new { @class = "navbar-brand" })
+                        </li>
+                    </ul>
+
+                    <form class="form-inline my-2 my-lg-0">
+                        <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Ara" aria-label="Search">
+                    </form>
+                </div>
+            </nav>*@
+
+        <section class="main-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10">
+                        @RenderBody()
+                    </div>
+                    <aside class="col-sm-2">
+                        <div class="widgets">
+                            @*<div class="widget categories">*@
+                            <div>
+                                @{
+                                    Html.RenderAction("ProgramListele", "Programs");
+                                }
+                            </div>
+                            <div class="widget posts">
+                                <div class="widget-tabs">
+                                    <div class="alert alert-primary text-center" role="alert">
+                                        <h6>En Dolu Salonlar</h6>
+                                    </div>
+                                    @*<ul class="nav nav-tabs">
+                                            <li class="active"><a href="#popular" data-toggle="tab">Popüler</a></li>
+                                            <li><span>/</span></li>
+                                            <li><a href="#fresh" data-toggle="tab">Yeni</a></li>
+                                        </ul>*@
+                                    <div class="tab-content">
+                                        @*<div class="tab-pane active" id="popular">*@
+                                        <div>
+                                            <ol type="I">
+                                                @{
+                                                    Html.RenderAction("SalonDoluluk", "Salons");
+                                                }
+                                            </ol>
+                                        </div>
+                                        @*<div class="tab-pane" id="fresh">*@
+                                        <div class="alert alert-primary text-center" role="alert">
+                                            <h6>Son Eklenen Salonlar</h6>
+                                        </div>
+                                        <div>
+                                            <ol type="I">
+                                                @{
+                                                    Html.RenderAction("SalonListele", "Salons");
+                                                }
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="container body-content">
+                                    @RenderBody()
+                                    <hr />
+                                    <footer style="text-align:center">
+                                        <p>&copy; @DateTime.Now.Year - Gazi Üniversitesi</p>
+                                    </footer>
+                                </div>*@
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/moment-with-locales.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+        <script src="~/Scripts/DateScript.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/i18n/jquery-ui-i18n.min.js"></script>
+
+    </body>
+</html>

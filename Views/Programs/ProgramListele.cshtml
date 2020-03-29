@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Gazi_Salon_Takip.Models.EntityFramework.Program>
+
+@{
+    Layout = null;
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h5>Genel Bilgiler</h5>
+</div>
+<div class="alert alert-primary text-center" role="alert">
+    <h6>Son Eklenen Programlar</h6>
+</div>
+
+<ol type="I">
+    @foreach (var program in Model)
+    {
+
+
+        <li><a href="/Programs/Details/@program.ID">@program.Program_Adı</a></li>
+
+
+    }
+</ol>

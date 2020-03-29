@@ -1,0 +1,341 @@
+
+/*@import url(http://fonts.googleapis.com/css?family=Dosis:300,400,500,700|Montserrat:400,700|Open+Sans:400italic,400,300italic,300,700italic,700,600);*/
+
+.set-default {
+    float: left;
+    width: 100%;
+}
+
+.tabs .tabs-left .tab-content {
+    padding: 30px 40px;
+    float: left;
+    width: 80%;
+}
+
+.tabs .tabs-top .tab-content {
+    padding: 25px;
+}
+
+    .tabs .tabs-top .tab-content figure {
+        float: left;
+        width: 40%;
+    }
+
+        .tabs .tabs-top .tab-content figure img {
+            width: 100%;
+            height: auto;
+        }
+
+    .tabs .tabs-top .tab-content h4 {
+        float: left;
+        width: 60%;
+        padding-left: 25px;
+    }
+
+    .tabs .tabs-top .tab-content h4 {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .tabs .tabs-top .tab-content .tab-text {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .tabs .tabs-top .tab-content .tab-text {
+        float: left;
+        width: 60%;
+        padding-left: 25px;
+    }
+
+.tabs .tab-content {
+    border: solid 1px #e2eaec;
+    background: #ffffff;
+    width: 100%;
+    display: inline-block;
+}
+
+    .tabs .tab-content h4 {
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 26px;
+        line-height: 28px;
+        font-weight: 400;
+        color: red;
+    }
+
+    .tabs .tab-content .tab-text {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 8px;
+        line-height: 14px;
+        font-weight: 400;
+        color: red;
+    }
+
+        .tabs .tab-content .tab-text a {
+            text-decoration: none;
+            color: red;
+            font-weight: 600;
+        }
+
+.widget.posts {
+    float: left;
+    width: 100%;
+    border-right: none;
+}
+
+    .widget.posts .tab-pane .text {
+        float: left;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+
+    .widget.posts .tab-pane a.category {
+        margin-top: 3px;
+    }
+
+
+
+    .widget.posts .nav-tabs {
+        border: none;
+        padding-bottom: 15px;
+    }
+
+        .widget.posts .nav-tabs span {
+            padding-top: 3px;
+            float: left;
+        }
+
+        .widget.posts .nav-tabs li {
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 8px;
+            line-height: 8px;
+            font-weight: normal;
+            color: red;
+            padding-right: 10px;
+        }
+
+            .widget.posts .nav-tabs li:hover a,
+            .widget.posts .nav-tabs li.active a {
+                color: red;
+                background: red;
+                border: none;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .widget.posts .nav-tabs li a {
+                color: red;
+                text-decoration: none;
+                margin: 0px;
+                padding: 0px;
+                border: none;
+                -webkit-transition: all .4s ease-in-out;
+                -moz-transition: all .4s ease-in-out;
+                -o-transition: all .4s ease-in-out;
+                transition: all .4s ease-in-out;
+            }
+
+    .widget.posts .tab-pane ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    .widget.posts .tab-pane li {
+        float: left;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px #f2f2f2 solid;
+    }
+
+        .widget.posts .tab-pane li:first-child {
+            border-top: 1px #f2f2f2 solid;
+        }
+
+    .widget.posts .tab-pane figure {
+        float: left;
+        width: 20px;
+    }
+
+        .widget.posts .tab-pane figure a {
+            float: left;
+            width: 100%;
+        }
+
+        .widget.posts .tab-pane figure img {
+            width: 100%;
+            height: auto;
+        }
+
+    .widget.posts .tab-pane .text {
+        margin-left: 65px;
+        margin-top: 5px;
+    }
+
+    .widget.posts .tab-pane a {
+        width: 100%;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 8px;
+        line-height: 18px;
+        font-weight: 700;
+        color: red;
+        text-decoration: none;
+        float: left;
+        -webkit-transition: all .4s ease-in-out;
+        -moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+        .widget.posts .tab-pane a.category {
+            font-family: "Open Sans", Arial, sans-serif;
+            font-size: 8px;
+            line-height: 12px;
+            font-weight: 700;
+            color: red;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .widget.posts .tab-pane a:hover {
+            color: red;
+        }
+
+    .widget.posts .tab-pane .text {
+        float: left;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+
+.widget.categories li {
+    font-size: 8px;
+}
+
+.widgets {
+    float: left;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+
+.widget.categories ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.widget.categories li {
+    float: left;
+    width: 100%;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 8px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+    .widget.categories li:last-child {
+        border-bottom: 1px #f2f2f2 solid;
+    }
+
+.widget.categories a {
+    float: left;
+    width: 100%;
+    color: red;
+    text-decoration: none;
+    padding-left: 11px;
+    border-top: solid 1px #f2f2f2;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+    .widget.categories a:hover {
+        color: red;
+        background: red;
+        border-top-color: red;
+    }
+
+
+
+.main-container > .container {
+    background: #ffffff;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+}
+
+.main-container.simple .wrapper {
+    float: left;
+    width: 100%;
+    padding: 50px 50px 20px;
+}
+
+    .main-container.simple .wrapper p {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 8px;
+        line-height: 28px;
+        font-weight: 400;
+        color: #919faa;
+        margin: 0 0 25px;
+    }
+
+.main-container.boxed {
+    margin-bottom: 250px;
+}
+
+    .main-container.boxed > .container {
+        background: #f2f4f1;
+    }
+
+    .main-container.boxed .box {
+        float: left;
+        width: 100%;
+        background: #ffffff;
+        -webkit-border-radius: 3px;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 3px;
+        -moz-background-clip: padding;
+        border-radius: 3px;
+        background-clip: padding-box;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .main-container.boxed p {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 8px;
+        line-height: 28px;
+        font-weight: 400;
+        color: #919faa;
+        float: left;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .main-container.boxed .title {
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 600;
+        color: #5b7890;
+        text-transform: uppercase;
+    }
+
+    .main-container.boxed .title {
+        font-size: 8px;
+    }
+
+    .main-container.boxed p {
+        font-size: 8px;
+    }
+
+.main-container {
+    float: left;
+    width: 100%;
+    margin-bottom: 140px;
+}

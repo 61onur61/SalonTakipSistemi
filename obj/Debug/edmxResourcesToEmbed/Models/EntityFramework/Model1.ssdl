@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalonTakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalonID" Type="int" />
+    <Property Name="Program_Tarih" Type="date" />
+    <Property Name="Program_Baslangic" Type="datetime" />
+    <Property Name="Program_Bitis" Type="datetime" />
+    <Property Name="Program_Adı" Type="varchar" MaxLength="100" />
+    <Property Name="Program_Sahip" Type="varchar" MaxLength="50" />
+    <Property Name="Program_Aciklama" Type="varchar(max)" />
+    <Property Name="Is_Delete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Salon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Salon_Adi" Type="varchar" MaxLength="100" />
+    <Property Name="Salon_Adresi" Type="varchar" MaxLength="500" />
+    <Property Name="SalonBilgisi" Type="nvarchar(max)" />
+    <Property Name="Salon_Iletisim" Type="varchar" MaxLength="100" />
+    <Property Name="Is_Delete" Type="bit" />
+    <Property Name="SalonGoruntulenme" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Uye">
+    <Key>
+      <PropertyRef Name="uyeID" />
+    </Key>
+    <Property Name="uyeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdSoyad" Type="nvarchar" MaxLength="250" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="150" />
+    <Property Name="KullaniciEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="YetkiID" Type="int" />
+  </EntityType>
+  <EntityType Name="Yetki">
+    <Key>
+      <PropertyRef Name="YetkiID" />
+    </Key>
+    <Property Name="YetkiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yetki" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_Program_Salon">
+    <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+    <End Role="Program" Type="Self.Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="SalonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Uye_Yetki">
+    <End Role="Yetki" Type="Self.Yetki" Multiplicity="0..1" />
+    <End Role="Uye" Type="Self.Uye" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Yetki">
+        <PropertyRef Name="YetkiID" />
+      </Principal>
+      <Dependent Role="Uye">
+        <PropertyRef Name="YetkiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalonTakipModelStoreContainer">
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salon" EntityType="Self.Salon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uye" EntityType="Self.Uye" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yetki" EntityType="Self.Yetki" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Program_Salon" Association="Self.FK_Program_Salon">
+      <End Role="Salon" EntitySet="Salon" />
+      <End Role="Program" EntitySet="Program" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Uye_Yetki" Association="Self.FK_Uye_Yetki">
+      <End Role="Yetki" EntitySet="Yetki" />
+      <End Role="Uye" EntitySet="Uye" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

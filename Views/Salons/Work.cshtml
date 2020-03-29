@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Gazi_Salon_Takip.Models.EntityFramework.Program>
+
+@{
+    ViewBag.Title = "Work";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Bağlı Programlar</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Salon.Salon_Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program_Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program_Baslangic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program_Bitis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program_Adı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program_Sahip)
+        </th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SalonID != ViewBag.program_id)
+        {
+            continue;
+        }
+
+    <tr>
+        <td class="alert alert-info">
+            @Html.DisplayFor(modelItem => item.Salon.Salon_Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program_Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program_Baslangic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program_Bitis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program_Adı)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program_Sahip)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", "Programs", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit" })
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Details", "Programs", new { id = item.ID }, new { @class = "glyphicon glyphicon-folder-open" })
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Delete", "Programs", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+        </td>
+
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Gazi_Salon_Takip.Models.EntityFramework.Salon>
+
+@{
+    Layout = null;
+}
+
+@foreach (var salon in Model)
+{
+    <li>
+        <div class="text">
+            <a href="/Salons/Details/@salon.ID">@salon.Salon_Adi</a>
+        </div>
+    </li>
+}

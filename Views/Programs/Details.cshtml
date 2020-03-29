@@ -1,0 +1,71 @@
+﻿@model Gazi_Salon_Takip.Models.EntityFramework.Program
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Program Detayları</h2>
+</div>
+<div>
+    <hr />
+
+    <table class="table table-hover">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Tarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Baslangic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Bitis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Adı)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Sahip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program_Aciklama)
+            </th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Tarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Baslangic)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Bitis)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Adı)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Sahip)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Program_Aciklama)
+                </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        @Html.ActionLink("Güncelle", "Edit", new { id = Model.ID }, new { @class = "btn btn-success btn-lg btn-block" })
+    </div>
+    <div class="col-lg-6">
+        @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary btn-lg btn-block" })
+    </div>
+</div>
+
+

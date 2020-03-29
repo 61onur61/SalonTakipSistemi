@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "uyari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-top:25px;">
+    @Html.ActionLink("Geri Dön","Create", "Programs", null, new { @class = "btn btn-primary" })
+</div>
+
+<script>
+
+    Swal.fire({
+        title: '@ViewBag.tit',
+        text: '@ViewBag.uyari',
+        icon: '@ViewBag.icon',
+        confirmButtonText: 'Tamam'
+    })
+
+</script>

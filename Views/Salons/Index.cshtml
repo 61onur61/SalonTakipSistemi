@@ -1,0 +1,80 @@
+﻿@model IPagedList<Gazi_Salon_Takip.Models.EntityFramework.Salon>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Salonlar</h2>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">
+                            <a href="/Salons/Details/@item.ID">@item.Salon_Adi</a>
+                        </h4>
+                        <h5 class="text-center">@item.Salon_Adresi</h5>
+                        <p class="card-text text-center">@item.Salon_Iletisim</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID }, new { @class = "btn btn-info mr-5 ml-5" })
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 text-center">
+        <div class="pagedList pagination-lg" style="margin-left:350px">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+        </div>
+    </div>
+</div>
+@*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salon_Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salon_Adresi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salon_Iletisim)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id = item.ID }, new { @class = "btn btn-success mr-5" })
+            @Html.ActionLink("Detaylar", "Details", new { id = item.ID }, new { @class = "btn btn-primary mr-5 ml-5" })
+            @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btn btn-danger ml-5" })
+        </td>
+    </tr>*@
+
+
+
+
+
+
+
+
+
+
+<!-----------ARAMA İÇİN SCRIPT ALANI----------------->
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

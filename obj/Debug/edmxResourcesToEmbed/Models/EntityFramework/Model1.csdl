@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalonTakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalonID" Type="Int32" />
+    <Property Name="Program_Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Program_Baslangic" Type="DateTime" Precision="3" />
+    <Property Name="Program_Bitis" Type="DateTime" Precision="3" />
+    <Property Name="Program_Adı" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Program_Sahip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Program_Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <NavigationProperty Name="Salon" Relationship="Self.FK_Program_Salon" FromRole="Program" ToRole="Salon" />
+  </EntityType>
+  <EntityType Name="Salon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Salon_Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Salon_Adresi" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SalonBilgisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salon_Iletisim" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Delete" Type="Boolean" />
+    <Property Name="SalonGoruntulenme" Type="Int32" />
+    <NavigationProperty Name="Programs" Relationship="Self.FK_Program_Salon" FromRole="Salon" ToRole="Program" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Uye">
+    <Key>
+      <PropertyRef Name="uyeID" />
+    </Key>
+    <Property Name="uyeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdSoyad" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YetkiID" Type="Int32" />
+    <NavigationProperty Name="Yetki" Relationship="Self.FK_Uye_Yetki" FromRole="Uye" ToRole="Yetki" />
+  </EntityType>
+  <EntityType Name="Yetki">
+    <Key>
+      <PropertyRef Name="YetkiID" />
+    </Key>
+    <Property Name="YetkiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yetki1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Uyes" Relationship="Self.FK_Uye_Yetki" FromRole="Yetki" ToRole="Uye" />
+  </EntityType>
+  <Association Name="FK_Program_Salon">
+    <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+    <End Role="Program" Type="Self.Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salon">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="SalonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Uye_Yetki">
+    <End Role="Yetki" Type="Self.Yetki" Multiplicity="0..1" />
+    <End Role="Uye" Type="Self.Uye" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Yetki">
+        <PropertyRef Name="YetkiID" />
+      </Principal>
+      <Dependent Role="Uye">
+        <PropertyRef Name="YetkiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalonTakipEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Programs" EntityType="Self.Program" />
+    <EntitySet Name="Salons" EntityType="Self.Salon" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Uyes" EntityType="Self.Uye" />
+    <EntitySet Name="Yetkis" EntityType="Self.Yetki" />
+    <AssociationSet Name="FK_Program_Salon" Association="Self.FK_Program_Salon">
+      <End Role="Salon" EntitySet="Salons" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Uye_Yetki" Association="Self.FK_Uye_Yetki">
+      <End Role="Yetki" EntitySet="Yetkis" />
+      <End Role="Uye" EntitySet="Uyes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

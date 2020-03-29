@@ -1,0 +1,89 @@
+﻿@model Gazi_Salon_Takip.Models.EntityFramework.Salon
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Salon Sil</h2>
+</div>
+
+<div>
+    <hr />
+
+    <table class="table table-hover">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Salon_Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salon_Adresi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salon_Iletisim)
+            </th>
+
+        </tr>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Salon_Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Salon_Adresi)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Salon_Iletisim)
+                </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+    @*<div class="alert alert-danger text-center" role="alert">
+            <h4>Silmek İstediğinize Emin Misiniz ?</h4>
+        </div>*@
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions row">
+        <div class="col-lg-6">
+            <input type="submit" value="Sil" class="btn btn-danger btn-lg btn-block" />
+
+        </div>
+        <div class="col-lg-6">
+            @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary btn-lg btn-block" })
+        </div>
+    </div>
+
+
+
+}
+
+<script>
+
+    Swal.fire({
+        title: 'UYARI',
+        text: '@ViewBag.sss',
+        icon: '@ViewBag.icon',
+        confirmButtonText: 'Tamam'
+    })
+
+</script>
+
+<script>
+
+    Swal.fire({
+        title: 'UYARI',
+        text: '@ViewBag.sss',
+        icon: '@ViewBag.icon',
+        confirmButtonText: 'Tamam'
+    })
+
+
+</script>
+

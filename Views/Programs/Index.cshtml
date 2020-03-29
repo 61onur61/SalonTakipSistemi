@@ -1,0 +1,108 @@
+﻿@model IPagedList<Gazi_Salon_Takip.Models.EntityFramework.Program>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Programlar</h2>
+</div>
+
+@using (Html.BeginForm("Index", "Programs", FormMethod.Get))
+{
+    <div>
+        @Html.TextBox("a", null, new { @class = "form-control col-md-11" })
+        <button class="btn btn-primary col-md-1" type="submit" value="Ara">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+    </div>
+
+
+}
+
+<table class="table table-hover">
+    <tr class="alert alert-info">
+        <th>
+            @Html.DisplayNameFor(model => model.First().SalonID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Tarih)
+        </th>
+        <th>
+            @Html.Label("Başlangıç")
+        </th>
+        <th>
+            @Html.Label("Bitiş")
+        </th>
+        <th>
+            @Html.Label("Ad")
+        </th>
+        <th>
+            @Html.Label("Sahip")
+        </th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Sil</th>
+    </tr>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td class="alert alert-info">
+                    @Html.DisplayFor(modelItem => item.Salon.Salon_Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program_Tarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program_Baslangic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program_Bitis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program_Adı)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program_Sahip)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit" })
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "glyphicon glyphicon-folder-open" })
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div class="row text-center">
+    <div class="col-md-8 text-center">
+        <div class="pagedList pagination-lg" style="margin-left:350px">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", "Programs", new { Page }), PagedListRenderOptions.Classic)
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-----------ARAMA İÇİN SCRIPT ALANI----------------->
+@*<script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>*@

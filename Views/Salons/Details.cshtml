@@ -1,0 +1,61 @@
+﻿@model Gazi_Salon_Takip.Models.EntityFramework.Salon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Salon Detayları</h2>
+</div>
+<div>
+    <hr />
+
+    <table class="table table-hover">
+        <tr class="table-info">
+            <th class="alert alert-info">
+                @Html.DisplayNameFor(model => model.Salon_Adi)
+            </th>
+            <th class="alert alert-info">
+                @Html.DisplayNameFor(model => model.Salon_Iletisim)
+            </th>
+            <th class="alert alert-info">
+                @Html.Label("Programlar")
+            </th>
+            <th class="alert alert-info">
+                @Html.Label("Düzenle")
+            </th>
+            <th class="alert alert-info">
+                @Html.Label("Sil")
+            </th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Salon_Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Salon_Iletisim)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Work", new { id = Model.ID }, new { @class = "glyphicon glyphicon-list-alt" })
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = Model.ID }, new { @class = "glyphicon glyphicon-edit" })
+                </td> 
+                <td>
+                    @Html.ActionLink(" ", "Delete", new { id = Model.ID }, new { @class = "glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary btn-md" })
+    </div>
+</div>   

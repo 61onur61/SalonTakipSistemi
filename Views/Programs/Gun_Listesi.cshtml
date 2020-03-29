@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Gazi_Salon_Takip.Models.EntityFramework.Program>
+@*@using PagedList
+@using PagedList.Mvc*@
+@{
+    /**/
+
+    ViewBag.Title = "Gun_Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-primary text-center" role="alert">
+    <h2>Günün Programı</h2>
+</div>
+
+
+<table class="table table-hover">
+    <tr class="alert alert-info">
+        <th>
+            @Html.DisplayNameFor(model => model.First().Salon.Salon_Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Baslangic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Bitis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Sahip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Program_Adı)
+        </th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody id="myTable">
+
+        @foreach (var item in Model)
+        {
+            
+            
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salon.Salon_Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program_Tarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program_Baslangic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program_Bitis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program_Sahip)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program_Adı)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+                    </td>
+                </tr>
+            
+           
+
+            @*@Html.Label(zaman.ToString("MM/dd/yyyy") + " tarihinde "  + " tane program var", new { @class = "alert alert-info" })*@
+
+                
+            
+
+            
+        }
+
+
+    </tbody>
+
+</table>
+@*<div class="row text-center">
+    <div class="col-md-8 text-center">
+        <div class="pagedList pagination-lg" style="margin-left:350px">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", "Programs", new { Page }), PagedListRenderOptions.Classic)
+        </div>
+    </div>
+</div>*@
+
+<!-----------ARAMA İÇİN SCRIPT ALANI----------------->
+
+@*<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>*@
+
+<script>
+
+        Swal.fire({
+            title: 'BILGILENDIRME',
+            text: 'Bugun @ViewBag.sayi tane program var',
+            icon: 'success',
+            confirmButtonText: 'Tamam'
+        })
+
+
+</script>
